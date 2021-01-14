@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>add_post_1</title>
+</head>
+<body>
+	<div style="border: 1px solid grey;text-align: center;background-color: grey">
+	<h1>Hello,{{name}}</h1>
+	<h1> add_post_1</h1>
+	<form action="add_post_1_post" method="post">
+		{% csrf_token %}
+		<input type="text" name="name"><br>
+		<input type="text" name="desc"><br>
+		<input type="submit" name="submit">
+	</form>
+</div>
+</body>
+</html>

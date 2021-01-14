@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>details</title>
+</head>
+<body>
+	<div style="border: 1px solid grey">
+	<form action="search_fri">
+		<input id="inp" type="text" name="friend" placeholder="Enter email of uour friend" list="sugg">
+		<datalist id="sugg">
+			
+		</datalist><!-- 
+		<input type="text" name="friend" placeholder="Enter email of uour friend"> -->
+		<input type="submit" name="submit">
+	</form>
+	</div>
+	<div style="border: 1px solid grey;text-align: center;background-color: grey">
+	
+	<img src="{{user.first_name}}" height="30%" width="30%" align="center">
+	<h1>Hello,{{user.username}}</h1>
+	<h1>{{user.email}}</h1>
+	<h1>{{user.last_name}}</h1><br>
+	</div>
+	<button><a href="http://127.0.0.1:8000/add_post_1">Add post</a></button>
+	<button><a href="http://127.0.0.1:8000/add_post_2">Add post2</a></button>
+	<button><a href="http://127.0.0.1:8000/add_post_3">Add post3</a></button><br>
+	<button><a href="http://127.0.0.1:8000/show_post_2/{{user.id}}">show post2</a></button>
+	<button><a href="http://127.0.0.1:8000/show_post_3/{{user.id}}">show post3</a></button>
+	<br>
+	<h1>all post </h1>
+	<div style="border: 2px solid black">
+	{% for i in p %}
+	<div style="border: 1px solid black">
+	<h1>name={{i.name}}</h1>
+	<h3>desc={{i.desc}}</h3>
+	<h3>username={{i.user_data.username}}</h3>
+	<h2>likes={{i.likes}}</h2>
+	</div>
+	{% endfor %}
+	</div>
+
+
+	<h1>Friend requests</h1>
+	<div style="border: 2px solid black">
+	{% for i in f %}
+	<div style="border: 1px solid black">
+	<img src="{{i.fromuser.first_name}}" width="15%" height="15%">
+	<h1>Hello,{{i.fromuser.username}}</h1>
+	<h1>{{i.fromuser.email}}</h1>
+	<h1>{{i.fromuser.last_name}}</h1>
+	
+	<a href="add_request?id={{i.fromuser.id}}">confirm request</a>
+	</div>
+	{% endfor %}
+	</div>
+	<h1>Total friends</h1>
+	<div style="border: 2px solid black">
+	{% for j in tff %}
+	<div style="border: 1px solid black">
+		<img src="{{j.first_name}}" width="15%" height="15%" align="left"><br>
+		<h1>Hello,{{j.username}}</h1>
+		<h1>{{j.email}}</h1>
+		<h1>{{j.last_name}}</h1>
+		
+		<a href="/chat/{{j.username}}">chat </a>
+	</div>
+	{% endfor %}
+	</div>
+	<script src="{% static 'web_1.js' %}" type="text/javascript"></script>
+</body>
+</html>

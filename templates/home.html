@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>home</title>
+</head>
+<body>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script> -->
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+ -->
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<!-- <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" /> -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCQGNRh2wHpQ759iRu4_0XsRdlfWYih0aQ",
+    authDomain: "my-fb-b9d3e.firebaseapp.com",
+    databaseURL: "https://my-fb-b9d3e.firebaseio.com",
+    projectId: "my-fb-b9d3e",
+    storageBucket: "my-fb-b9d3e.appspot.com",
+    messagingSenderId: "958931699738",
+    appId: "1:958931699738:web:b320c88d7aec7a1e6aa9a3",
+    measurementId: "G-VCY9JNY09F"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+	<h1>Hello</h1>
+	<img id="photo" src="">
+	<a id="b1" href="http://127.0.0.1:8000/details">login</a>
+	
+	<button id="sign_google">Sign with google</button>
+	<script>
+		function sending(s){
+			var f=document.getElementById("b1")
+			f.href="http://127.0.0.1:8000/details?email="+s.email+'&username='+s.displayName+'&phoneNumber='+s.phoneNumber+'&photoURL='+s.photoURL
+			f.click()
+		}
+		function send_data_to_server(s) {
+			url="http://127.0.0.1:8000/save_data?email="+s.email+'&username='+s.displayName+'&phoneNumber='+s.phoneNumber+'&photoURL='+s.photoURL
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+			     alert(xhttp.responseText);
+			     var f=document.getElementById("b1")
+			     f.href="http://127.0.0.1:8000/details?email="+s.email
+			     f.click()
+
+			     // f.action='details'
+			    }
+			};
+			xhttp.open("GET", url, true);
+			xhttp.send();
+		}
+		var b1=document.getElementById('sign_google');
+		b1.onclick=function() {
+			var provider = new firebase.auth.GoogleAuthProvider();
+			firebase.auth().signInWithPopup(provider).then(function(result) {
+				  // This gives you a Google Access Token. You can use it to access the Google API.
+				  var token = result.credential.accessToken;
+				  // The signed-in user info.
+				  var user = result.user;
+				  console.log(user)
+				  console.log("jdijdiedc")
+				  console.log(user.displayName)
+				  console.log(user.photoURL)
+				  console.log(user.email)
+				  console.log(user.phoneNumber)
+				  console.log("djjhd")
+				  //send_data_to_server(user);
+				  sending(user);
+
+				  // ...
+				}).catch(function(error) {
+				  // Handle Errors here.
+				  var errorCode = error.code;
+				  var errorMessage = error.message;
+				  // The email of the user's account used.
+				  var email = error.email;
+				  // The firebase.auth.AuthCredential type that was used.
+				  var credential = error.credential;
+				  // ...
+				});
+		}
+	</script>
+</body>
+</html>
+
+
+
