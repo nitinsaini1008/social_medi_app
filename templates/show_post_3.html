@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>show_videos</title>
+</head>
+<body>
+	<h1>All videos</h1>
+	<div>
+		{% for i in f %}
+		<div>
+			<h2>{{i.name.username}}</h2>
+			<h3>{{i.desc}}</h3>
+			<img src="{{i.name.first_name}}" width="10%" height="10%">
+			<video width='400' controls>
+				<source src='/media/{{ i.user_video }}' type='video/mp4'>
+				Your browser does not support the video tag.
+			</video>
+		</div>
+		{% endfor %}
+	</div>
+</body>
+</html>

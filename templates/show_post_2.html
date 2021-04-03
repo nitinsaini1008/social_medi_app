@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>show_photo</title>
+</head>
+<body>
+	<h1>All Photos</h1>
+	<div>
+		{% for i in f %}
+		<div>
+			<h1>{{i.name.username}}</h1>
+			<h3>{{i.desc}}</h3>
+			<img src="{{i.name.first_name}}" width="10%" height="10%">
+			<img src="/media/{{i.user_img}}" width="40%" height="40%">
+			
+		</div>
+		{% endfor %}
+	</div>
+</body>
+</html>
