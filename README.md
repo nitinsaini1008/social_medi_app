@@ -18,7 +18,8 @@ using Django Channels and for the database, I use AWS RDS.
 
 Then this project will start running at 127.0.0.1:8000
 
-https://user-images.githubusercontent.com/62613600/151927200-9c5cc8f0-0b14-490c-9fd1-d8078a4dafe9.mp4
+
+https://user-images.githubusercontent.com/62613600/151977953-91943423-f51f-4f4f-8959-389338bdfa23.mp4
 
 
 # Tech Stack:-
