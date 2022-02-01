@@ -13,4 +13,11 @@ It is a social-media kind of web app like Facebook/ Instagram made using Django.
 
 Then this project will start running at 127.0.0.1:8000
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1t6NRwV7PFFKC20WU16mM2zUoNzf9LmzU/view?usp=sharing)
+https://user-images.githubusercontent.com/62613600/151927200-9c5cc8f0-0b14-490c-9fd1-d8078a4dafe9.mp4
+
+
+# Tech Stack:-
+Back-End:-<br />
+    Python, Django, Django-Channels, Linkedin-OAuth2.0<br />
+Front-End:-<br />
+ Html, CSS, Javascript, ajax
