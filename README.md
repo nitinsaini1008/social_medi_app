@@ -11,7 +11,7 @@ using Django Channels and for the database, I use AWS RDS.
 # Local Set-Up :- 
     $ git clone https://github.com/nitinsaini1008/social_medi_app.git
     $ cd social_medi_app
-    $ pip3 install requirenment.txt
+    $ pip3 install -r requirenment.txt
     $ python3 manage.py migrate
     $ python3 manage.py runserver
 
