@@ -12,3 +12,5 @@ It is a social-media kind of web app like Facebook/ Instagram made using Django.
 
 
 Then this project will start running at 127.0.0.1:8000
+
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](social_media_web_app.mkv)
